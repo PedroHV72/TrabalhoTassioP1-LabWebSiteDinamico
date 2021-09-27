@@ -8,6 +8,7 @@ public class Produto {
     private LocalDate dataCadastro;
     private Float valorUnitario;
     private String fotoUrl;
+    private String descricao;
 
     public Integer getId() {
         return id;
@@ -47,5 +48,13 @@ public class Produto {
 
     public void setFotoUrl(String fotoUrl) {
         this.fotoUrl = fotoUrl;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }
