@@ -25,4 +25,22 @@ public class ProdutoRepository {
         throw new Exception("Nenhum produto encontrado com este ID");
     }
 
+    public Produto adicionar(Produto produto) throws Exception {
+        String sql = "insert into produto(id, nome, descricao, fotoUrl, dataCadastro, valorUnitario) values (?, ?, ?, ?, ?, ?)";
+        int insert = jdbcTemplate.update(sql,
+                produto.getId(),
+                produto.getNome(),
+                produto.getDescricao(),
+                produto.getFotoUrl(),
+                produto.getDataCadastro(),
+                produto.getValorUnitario()
+        );
+
+        if(insert == 1) {
+            return produto;
+        }
+
+        throw new Exception("Erro ao inserir o produto");
+    }
+
 }

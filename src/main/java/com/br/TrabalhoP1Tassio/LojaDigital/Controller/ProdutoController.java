@@ -18,6 +18,12 @@ public class ProdutoController {
         produtoRepository = new ProdutoRepository(jdbcTemplate);
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping
+    public Produto inserir(@RequestBody Produto produto) throws Exception {
+        return produtoRepository.adicionar(produto);
+    }
+
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public ArrayList<Produto> buscarPorId(@PathVariable Integer id) throws Exception {

@@ -1,2 +1,18 @@
 GET http://localhost:8090/produto/1
 Accept: application/json
+
+###
+
+POST http://localhost:8090/produto
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 3,
+  "nome": "Hyperx Fury S Speed",
+  "descricao": "Mousepad super liso",
+  "fotoUrl": "",
+  "dataCadastro": "2021-09-28",
+  "horaCadastro": "16:18:00",
+  "valorUnitario": "129.90"
+}
