@@ -1,5 +1,6 @@
 package com.br.TrabalhoP1Tassio.LojaDigital.Model.Repository;
 
+import com.br.TrabalhoP1Tassio.LojaDigital.Model.Entity.Produto;
 import com.br.TrabalhoP1Tassio.LojaDigital.Model.Entity.Usuario;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -21,5 +22,21 @@ public class UsuarioRepository {
             return (ArrayList<Usuario>) jdbcTemplate.query(sql, new Object[]{id}, new UsuarioMapper());
         }
         throw new Exception("Nenhum usuário encontrado com este ID");
+    }
+
+    public Usuario adicionar(Usuario usuario) throws Exception {
+        String sql = "insert into usuario(id, nome, email, senha) values (?, ?, ?, ?)";
+        int insert = jdbcTemplate.update(sql,
+                usuario.getId(),
+                usuario.getNome(),
+                usuario.getEmail(),
+                usuario.getSenha()
+        );
+
+        if(insert == 1) {
+            return usuario;
+        }
+
+        throw new Exception("Erro ao inserir o produto");
     }
 }

@@ -1,2 +1,15 @@
 GET http://localhost:8090/usuario/1
 Accept: application/json
+
+###
+
+POST http://localhost:8090/usuario
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 3,
+  "nome": "Tassio",
+  "email": "c@c.com",
+  "senha": "0123"
+}
