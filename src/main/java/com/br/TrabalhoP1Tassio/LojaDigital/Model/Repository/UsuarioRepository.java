@@ -37,6 +37,6 @@ public class UsuarioRepository {
             return usuario;
         }
 
-        throw new Exception("Erro ao inserir o produto");
+        throw new Exception("Erro ao inserir o usuário");
     }
 }
