@@ -20,6 +20,6 @@ public class UsuarioRepository {
         if (buscar.size() > 0) {
             return (ArrayList<Usuario>) jdbcTemplate.query(sql, new Object[]{id}, new UsuarioMapper());
         }
-        throw new Exception("Nenhum produto encontrado com este ID");
+        throw new Exception("Nenhum usuário encontrado com este ID");
     }
 }

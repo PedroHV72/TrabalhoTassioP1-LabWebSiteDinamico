@@ -16,10 +16,12 @@ CREATE TABLE usuario (
 
 CREATE TABLE cliente (
     cpf VARCHAR(11) NOT NULL,
-    FOREIGN KEY (usuarioId) REFERENCES usuario(id),
+    usuarioId INT NOT NULL,
+    FOREIGN KEY (usuarioId) REFERENCES usuario(id)
 );
 
 CREATE TABLE fornecedora (
     cnpj VARCHAR(14) NOT NULL,
-    FOREIGN KEY (usuarioId) REFERENCES usuario(id),
+    usuarioId INT NOT NULL,
+    FOREIGN KEY (usuarioId) REFERENCES usuario(id)
 );
