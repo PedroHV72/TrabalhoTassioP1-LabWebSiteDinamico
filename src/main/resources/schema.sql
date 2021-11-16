@@ -8,10 +8,11 @@ CREATE TABLE produto (
 );
 
 CREATE TABLE usuario (
-    id    INT         NOT NULL,
-    nome  VARCHAR(40) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    senha VARCHAR(16) NOT NULL
+    id      INT         NOT NULL,
+    nome    VARCHAR(40) NOT NULL,
+    email   VARCHAR(50) NOT NULL,
+    senha   VARCHAR(16) NOT NULL,
+    fotoUrl VARCHAR(1000)
 );
 
 CREATE TABLE cliente (

@@ -24,6 +24,14 @@ public class ProdutoController {
         return produtoRepository.adicionar(produto);
     }
 
+    @CrossOrigin("*")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/")
+    public ArrayList<Produto> buscarProdutos() throws Exception {
+        return produtoRepository.buscarProdutos();
+    }
+
+    @CrossOrigin("*")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public ArrayList<Produto> buscarPorId(@PathVariable Integer id) throws Exception {

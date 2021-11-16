@@ -1,6 +1,5 @@
 package com.br.TrabalhoP1Tassio.LojaDigital.Controller;
 
-import com.br.TrabalhoP1Tassio.LojaDigital.Model.Entity.Produto;
 import com.br.TrabalhoP1Tassio.LojaDigital.Model.Entity.Usuario;
 import com.br.TrabalhoP1Tassio.LojaDigital.Model.Repository.UsuarioRepository;
 import org.springframework.http.HttpStatus;
@@ -24,9 +23,17 @@ public class UsuarioController {
         return usuarioRepository.adicionar(usuario);
     }
 
+    @CrossOrigin("*")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public ArrayList<Usuario> buscarPorId(@PathVariable Integer id) throws Exception {
         return usuarioRepository.buscarPorId(id);
+    }
+
+    @CrossOrigin("*")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/")
+    public ArrayList<Usuario> buscarUsuario() throws Exception {
+        return usuarioRepository.buscarUsuario();
     }
 }

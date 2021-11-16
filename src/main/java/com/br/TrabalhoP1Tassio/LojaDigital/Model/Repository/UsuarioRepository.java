@@ -1,6 +1,5 @@
 package com.br.TrabalhoP1Tassio.LojaDigital.Model.Repository;
 
-import com.br.TrabalhoP1Tassio.LojaDigital.Model.Entity.Produto;
 import com.br.TrabalhoP1Tassio.LojaDigital.Model.Entity.Usuario;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -24,13 +23,24 @@ public class UsuarioRepository {
         throw new Exception("Nenhum usuário encontrado com este ID");
     }
 
+    public ArrayList<Usuario> buscarUsuario() throws Exception {
+        String sql = "SELECT * FROM usuario";
+        ArrayList<Usuario> buscar = (ArrayList<Usuario>) jdbcTemplate.query(sql, new UsuarioMapper());
+
+        if (buscar.size() > 0) {
+            return (ArrayList<Usuario>) jdbcTemplate.query(sql, new UsuarioMapper());
+        }
+        throw new Exception("Nenhum usuário encontrado");
+    }
+
     public Usuario adicionar(Usuario usuario) throws Exception {
-        String sql = "insert into usuario(id, nome, email, senha) values (?, ?, ?, ?)";
+        String sql = "insert into usuario(id, nome, email, senha, fotoUrl) values (?, ?, ?, ?, ?)";
         int insert = jdbcTemplate.update(sql,
                 usuario.getId(),
                 usuario.getNome(),
                 usuario.getEmail(),
-                usuario.getSenha()
+                usuario.getSenha(),
+                usuario.getFotoUrl()
         );
 
         if(insert == 1) {

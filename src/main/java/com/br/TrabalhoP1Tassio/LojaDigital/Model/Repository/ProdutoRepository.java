@@ -14,6 +14,15 @@ public class ProdutoRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public ArrayList<Produto> buscarProdutos() throws Exception {
+        String sql = "SELECT * FROM produto";
+        ArrayList<Produto> buscar = (ArrayList<Produto>) jdbcTemplate.query(sql, new ProdutoMapper());
+
+        if (buscar.size() > 0) {
+            return (ArrayList<Produto>) jdbcTemplate.query(sql, new ProdutoMapper());
+        }
+        throw new Exception("Nenhum produto encontrado");
+    }
 
     public ArrayList<Produto> buscarPorId(Integer id) throws Exception {
         String sql = "SELECT * FROM produto WHERE id = ?";
